@@ -35,3 +35,5 @@ Uno de los problemas que se ha informado es que, en algunas configuraciones de h
 - [Time Stamp Counter](https://en.wikipedia.org/wiki/Time_Stamp_Counter).
 
 - [Pitfalls of TSC usage](http://oliveryang.net/2015/09/pitfalls-of-TSC-usage/).
+
+- [ The HPET bug: What it is and what it isn't](https://www.overclockers.at/number-crunching/the-hpet-bug-what-it-is-and-what-it-isnt_251222).
