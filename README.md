@@ -22,6 +22,14 @@ La razón detrás de este cambio es que el nuevo temporizador de 10 MHz permite 
 
 Uno de los problemas que se ha informado es que, en algunas configuraciones de hardware, el temporizador de 10 MHz puede generar latencia adicional y empeorar el rendimiento en ciertas aplicaciones. Esto puede ocurrir en sistemas antiguos o con hardware específico que no es compatible con el nuevo temporizador de 10 MHz.
 
+Por lo tanto, es importante que los desarrolladores de juegos y otras aplicaciones tengan en cuenta estos cambios al diseñar sus programas para asegurarse de que funcionen correctamente en la nueva resolución de temporizador. 
+
+Establecer una resolución más alta puede mejorar la precisión de los intervalos de tiempo de espera en las funciones de espera. Sin embargo, también puede reducir el rendimiento general del sistema, ya que el programador de hilos cambia las tareas con más frecuencia. Otra desventaja es que la precisión de los temporizadores puede verse afectada por factores externos como la latencia del sistema operativo y la frecuencia con la que la aplicación recupera los mensajes de la cola de mensajes. Esto puede hacer que el valor de tiempo de espera sea solo aproximado y puede afectar el rendimiento de las aplicaciones que dependen de mediciones de tiempo precisas.
+
+[NtSetTimerResolution](https://stackoverflow.com/questions/3141556/how-to-setup-timer-resolution-to-0-5-ms) y [NtQueryTimerResolution](https://stackoverflow.com/questions/21156944/how-to-get-the-current-windows-system-wide-timer-resolution) son funciones de la biblioteca nativa de Windows NT NTDLL.DLL, NtSetTimerResolution se puede usar para obtener una resolución de temporizador de 0.500ms. La resolución verdaderamente alcanzable está determinada por el hardware subyacente. Las resoluciones admitidas se pueden obtener mediante una llamada a NtQueryTimerResolution.
+
+El comportamiento del programador de Windows cambió significativamente en Windows 10 versión 2004. Antes de esta versión, la función [timeBeginPeriod](https://learn.microsoft.com/en-us/windows/win32/api/timeapi/nf-timeapi-timebeginperiod) afectaba una configuración global de Windows y Windows usaba el valor más bajo (es decir, la resolución más alta) solicitado por cualquier proceso. A partir de Windows 10 versión 2004, esta función ya no afecta la resolución global del temporizador. Para los procesos que llaman a esta función, Windows usa el valor más bajo (es decir, la resolución más alta) solicitado por cualquier proceso. Para los procesos que no han llamado a esta función.
+
 # Referencias:
 
 - [amitxv/PC-Tuning](https://github.com/amitxv/PC-Tuning/blob/main/docs/research.md#fixing-timing-precision-in-windows-after-the-great-rule-change).
@@ -36,4 +44,6 @@ Uno de los problemas que se ha informado es que, en algunas configuraciones de h
 
 - [Pitfalls of TSC usage](http://oliveryang.net/2015/09/pitfalls-of-TSC-usage/).
 
-- [ The HPET bug: What it is and what it isn't](https://www.overclockers.at/number-crunching/the-hpet-bug-what-it-is-and-what-it-isnt_251222).
+- [The HPET bug: What it is and what it isn't](https://www.overclockers.at/number-crunching/the-hpet-bug-what-it-is-and-what-it-isnt_251222).
+
+- [Uso de temporizadores](https://learn.microsoft.com/es-es/windows-hardware/drivers/wdf/using-timers).
