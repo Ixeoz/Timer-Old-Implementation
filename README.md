@@ -8,7 +8,7 @@ Windows cambió esto para permitir que los temporizadores se resuelvan en increm
 
 - Uno de sus problemas es que puede reducir o aumentar según cierta carga implementada, esto podría ser contraproducente, ya que podría ofrecernos mediciones inexactas. 
 
-"Windows uses timers for many things, such as synchronization or ensuring linearity, and there are sets of software relating to monitoring and overclocking that require the timer with the most granularity - specifically they often require the [High Precision Event Timer (HPET)](https://en.wikipedia.org/wiki/High_Precision_Event_Timer)."
+"Windows uses timers for many things, such as synchronization or ensuring linearity, and there are sets of software relating to monitoring and overclocking that require the timer with the most granularity - specifically they often require the [High Precision Event Timer (HPET)](https://en.wikipedia.org/wiki/High_Precision_Event_Timer)".
 
 - [A Timely Discovery: Examining Our AMD 2nd Gen Ryzen Results](https://www.anandtech.com/show/12678/a-timely-discovery-examining-amd-2nd-gen-ryzen-results)
 
