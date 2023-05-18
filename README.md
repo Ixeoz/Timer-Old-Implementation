@@ -30,6 +30,8 @@ Establecer una resolución más alta puede mejorar la precisión de los interval
 
 El comportamiento del programador de Windows cambió significativamente en Windows 10 versión 2004. Antes de esta versión, la función [timeBeginPeriod](https://learn.microsoft.com/en-us/windows/win32/api/timeapi/nf-timeapi-timebeginperiod) afectaba una configuración global de Windows y Windows usaba el valor más bajo (es decir, la resolución más alta) solicitado por cualquier proceso. A partir de Windows 10 versión 2004, esta función ya no afecta la resolución global del temporizador. Para los procesos que llaman a esta función, Windows usa el valor más bajo (es decir, la resolución más alta) solicitado por cualquier proceso. Para los procesos que no han llamado a esta función.
 
+## [Lectura sobre Windows32PrioritySeparation](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Win32PS/win32ps.md).
+
 # Referencias:
 
 - [amitxv/PC-Tuning](https://github.com/amitxv/PC-Tuning/blob/main/docs/research.md#fixing-timing-precision-in-windows-after-the-great-rule-change).
