@@ -19,7 +19,7 @@ Pero claro, esto tiene mucha más profundidad, entra el planificador de procesos
 
 - Los dos bits más bajos **(AABBCC)** determinan si los hilos de los procesos en primer plano obtienen más tiempo del procesador que los hilos de los procesos en segundo plano cada vez que se ejecutan.
 
-[Microsoft Documentation](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj54Mu58vz-AhUqQzABHfowCmAQFnoECAoQAQ&url=https%3A%2F%2Fwww.techpowerup.com%2Fforums%2Fattachments%2Fwin32priorityseparation-_-microsoft-docs-pdf.163992%2F&usg=AOvVaw226tFMxny4dfXDvQ7tdOTi)
+[Microsoft Documentation](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj54Mu58vz-AhUqQzABHfowCmAQFnoECAoQAQ&url=https%3A%2F%2Fwww.techpowerup.com%2Fforums%2Fattachments%2Fwin32priorityseparation-_-microsoft-docs-pdf.163992%2F&usg=AOvVaw226tFMxny4dfXDvQ7tdOTi).
 
 Solamente se leen **6 bits**, el valor máximo que se puede representar en hexadecimal sería ``0x3F``, que es igual a ``00111111`` en binario.
 
@@ -33,7 +33,7 @@ Solamente se leen **6 bits**, el valor máximo que se puede representar en hexad
 
 Esto específica los **Quantums** y su longitud relativa de los hilos, entre **"shorts y longs"**. En este punto, define la(s) variable(s) de los **Quantums** y su separación de prioridad. Y va a determinar el **Quantum** que se utilizará cuando la variable está habilitada. Entonces, el propio planificado de Windows habitualmente apunta las prioridades de los hilos por una funcon de prioridad. Así que esto puede reducir las latencias, porque los hilos son más rápidos a los eventos que se quedan en **pausa / espera** y así hay más constancia. Pero, entonces, si depende de la velocidad del clock, también dependería del propio [HAL](https://en.wikipedia.org/wiki/Hardware_abstraction), ya que oculta las interruociones y los mecanismos de multiprocesador, porque esto ya dependería de la propia máquina, esto sería parte de los controladores que estén escritos por el propio usuario.
 
-La prioridad de los hilos que no están en tiempo real. Pero en unos casos se deben eliminar el **PriorityBoost**, porque hay hilos de ajuste que pierden su **Boost** y da su prioridad a otro hilo que apenas está arrancando. Pero entonces el **seed** que se elige por el núcleo para **"cierto proceso"** es creado aleatoriamente por el algoritmo [Round Robin](https://es.wikipedia.org/wiki/Planificaci%C3%B3n_Round-robin) se asigna, si se aplica **LGAT** y se fuerza al **0** pero si hay **1**, siempre se va a elegir ese si es que existe.
+La prioridad de los hilos que no están en tiempo real. Pero en unos casos se deben eliminar el **PriorityBoost**, porque hay hilos de ajuste que pierden su **Boost** y da su prioridad a otro hilo que apenas está arrancando. Pero entonces el **seed** que se elige por el núcleo para **"cierto proceso"** es creado aleatoriamente por el algoritmo [Round Robin](https://es.wikipedia.org/wiki/Planificaci%C3%B3n_Round-robin) se asigna, si se aplica y se fuerza al **0** pero si hay **1**, siempre se va a elegir ese si es que existe.
 
 ## **Table Quantum Values**
 
@@ -41,6 +41,45 @@ La prioridad de los hilos que no están en tiempo real. Pero en unos casos se de
 |--------------|-------------------------|------------------------|
 | **Variable** | 6  12 18                | 12 24 36               |
 | **Fixed**    | 18 18 18                | 36 36 36               |
+
+- **Short** y **Long** se refieren a la duración relativa de cada intervalo del procesador. Los dos bits más altos del valor del registro determinan si cada intervalo del procesador es relativamente largo o corto.
+
+- **Variable** y **Fixed** se refieren a si la duración del tiempo del procesador de los dos bits intermedios del valor del registro determinan si la duración del intervalo varía o es fija. También determina si los hilos de los procesos en primer plano tienen intervalos de procesador más largos que los de los procesos en segundo plano. Si el intervalo del procesador es **Fixed**, ese intervalo se aplica por igual a los hilos de los procesos en primer y segundo plano. Si el intervalo del procesador es **Variable**, la duración del tiempo que cada hilo se ejecuta varía, pero la relación entre el tiempo del procesador de los hilos en primer plano y los hilos en segundo plano es fija.
+
+**Ejemplos:**
+
+- Imaginemos que tenemos dos procesos en ejecución en Windows: un proceso en primer plano (por ejemplo, una aplicación de edición de texto) y un proceso en segundo plano (por ejemplo, una descarga de archivo). El sistema operativo asigna tiempo del procesador a cada uno de estos procesos en intervalos.
+
+- Si el valor está configurado para usar intervalos **Short**, cada proceso recibirá intervalos más cortos pero más frecuentes de tiempo del procesador. Si está configurado para usar intervalos **Long**, cada proceso recibirá intervalos más largos pero menos frecuentes de tiempo del procesador.
+
+- Si el valor está configurado para usar intervalos **Variable**, la duración del tiempo del procesador asignado a cada proceso puede variar. Por ejemplo, el proceso en primer plano podría recibir más tiempo del procesador cuando el usuario está interactuando activamente con él y menos tiempo cuando está inactivo. Si está configurado para usar intervalos fijos **Fixed**, la duración del tiempo del procesador asignado a cada proceso será constante.
+
+En [KernelOS](https://dsc.gg/kernelos) hay una carpeta en el PATH: 
+```
+C:\Windows\POST-INSTALL\Tweaking\Win32Priority
+```
+## **Tabla Win32PrioritySeparation que están en KernelOS.**
+
+| Hexadecimal   | Interval | Length   | 
+| --------------|----------|----------|
+| 0x2           | Short    | Variable | 
+| 0x1a          | Short    | Fixed    | 
+| 0x2a          | Short    | Variable | 
+| 0x10d         | Short    | Variable | 
+| 0x14          | Long     | Variable | 
+| 0x16          | Long     | Variable |
+| 0x26          | Short    | Variable | 
+| 0x28          | Short    | Fixed    | 
+| 0x41ffaca5    | Long     | Variable | 
+| 0x55fffff     | Short    | Variable | 
+| 0x7777        | Short    | Variable |
+| 0x666666      | Short    | Variable |
+| 0xfff3891     | Long     | Variable |
+| 0xfff9887     | Short    | Variable | 
+| 0xfff55555    | Long     | Variable | 
+| 0xffff3f91    | Long     | Variable |
+| 0xffff9887    | Short    | Variable | 
+| 0xfffff311    | Long     | Variable | 
 
 El **Quantum** es la cantidad del tiempo que se ejecuta el subproceso antes de que Windows verifique si hay otro subproceso con la misma prioridad en la cual se espera para ejecutarse. En caso tal de que, un subproceso complete su Quantum y no hay otros subprocesos de su prioridad, lo que hará el Windows es que permitirá que el subproceso se vaya a ejecutar en el próximo **Quantum**. Así que la duración del intervalo del reloj depende del Hardware y las frecuencias de las interrupciones dependen del [HAL](https://en.wikipedia.org/wiki/Hardware_abstraction), no del núcleo.
 
@@ -118,6 +157,20 @@ fffff803`144fc5c4  00000001
 lkd > dd PsForeGroundQuantum l1
 fffff803`1452e874  0c 18 24
 ```
+- Por otro lado, para verificar el **BasePriority** y **QuantumReset**:
+
+```
+lkd > .process
+Implicit process is now ffff8a0f`332ba180
+```
+- El valor **332ba180**, es el que se debe copiar.
+```
+lkd > dt _KPROCESS 332ba180
+nt!_KPROCESS <información>
+```
+
+- En el momento que se ejecute, tendrán la información de **BasePriority** y **QuantumReset**.
+
 
 # Referencias:
 
@@ -126,3 +179,5 @@ fffff803`1452e874  0c 18 24
 - [The truth behind ambiguous values | AMIT](https://github.com/amitxv/PC-Tuning/blob/main/docs/research.md#win32priorityseparation).
 
 - [If you modify Win32PrioritySeparation (process foreground and background quantum lengths) in the registry does it update in realtime or does it require a system restart? | Djdallmann](https://github.com/djdallmann/GamingPCSetup/blob/master/CONTENT/RESEARCH/WINKERNEL/README.md).
+
+- [Windows System Internals 7e Part 1](https://empyreal96.github.io/nt-info-depot/Windows-Internals-PDFs/Windows%20System%20Internals%207e%20Part%201.pdf).
