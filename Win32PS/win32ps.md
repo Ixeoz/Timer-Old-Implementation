@@ -134,7 +134,7 @@ Se toma la tercera opción ``0151c278``.
 lkd > dd PsPrioritySeparation l1
 ```
 ```
-lkd > db PsForeGroundQuantum l3
+lkd > db PspForeGroundQuantum l3
 ```
 
 ## Algunos ejemplos:
@@ -145,7 +145,7 @@ lkd > dd PsPrioritySeparation l1
 fffff803`144fc5c4  00000002
 ```
 ```
-lkd > db PsForeGroundQuantum l3
+lkd > db PspForeGroundQuantum l3
 fffff803`1452e874  06 0c 12
 ```
 - **Win32PrioritySeparation 28 Hexadecimal**.
@@ -154,7 +154,7 @@ lkd > dd PsPrioritySeparation l1
 fffff803`144fc5c4  00000001
 ```
 ```
-lkd > db PsForeGroundQuantum l3
+lkd > db PspForeGroundQuantum l3
 fffff803`1452e874  0c 18 24
 ```
 - Por otro lado, para verificar el **BasePriority** y **QuantumReset**:
