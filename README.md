@@ -1,6 +1,6 @@
 # Timer-Old-Implementation
 
-Cabe destacar, que a partir de Windows 11, si un proceso de propiedad de una ventana se vuelve completamente ocluido/minimizado/invisible para el usuario final, Windows no garantizará una resolución más alta que la resolución predeterminada del sistema: 64 Hz / 15.625 ms. Windows 11 solo garantiza un temporizador de alta resolución para las aplicaciones si tiene prioridad en primer plano o se está utilizando activamente
+Cabe destacar, que a partir de Windows 11, si un proceso de propiedad de una ventana se vuelve completamente ocluido/minimizado/invisible para el usuario final, Windows no garantizará una resolución más alta que la resolución predeterminada del sistema: 64 Hz / 15.625 ms. Windows 11 solo garantiza un temporizador de alta resolución para las aplicaciones si tiene prioridad en primer plano o se está utilizando activamente.
 
 Windows cambió esto para permitir que los temporizadores se resuelvan en incrementos de tiempo de solo 100 microsegundos (µs), lo que permite una resolución de temporizador más precisa. Esto significa que cualquier temporizador que se establezca para menos de 1 ms ahora se resolverá a una resolución de 100 µs en lugar de redondearse automáticamente a 1 ms. En general, este cambio en la resolución del temporizador de Windows es una buena noticia para los desarrolladores que necesitan temporizadores precisos y confiables en sus programas. Pero, también significa que los desarrolladores deben tener en cuenta este cambio al diseñar sus programas para asegurarse de que funcionen correctamente en la nueva resolución de temporizador.
 
@@ -30,7 +30,7 @@ Establecer una resolución más alta puede mejorar la precisión de los interval
 
 El comportamiento del programador de Windows cambió significativamente en Windows 10 versión 2004. Antes de esta versión, la función [timeBeginPeriod](https://learn.microsoft.com/en-us/windows/win32/api/timeapi/nf-timeapi-timebeginperiod) afectaba una configuración global de Windows y Windows usaba el valor más bajo (es decir, la resolución más alta) solicitado por cualquier proceso. A partir de Windows 10 versión 2004, esta función ya no afecta la resolución global del temporizador. Para los procesos que llaman a esta función, Windows usa el valor más bajo (es decir, la resolución más alta) solicitado por cualquier proceso. Para los procesos que no han llamado a esta función.
 
-## [Lectura sobre Windows32PrioritySeparation](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Win32PS/win32ps.md).
+## [Lectura sobre Win32PrioritySeparation](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Win32PS/win32ps.md).
 
 # Referencias:
 
