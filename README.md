@@ -1,3 +1,5 @@
+Este repositorio ha sido escrito y publicado por Ixeoz y Velytics, hemos recopilado información de otras fuentes, los créditos estarán hasta el final.
+
 # Timer-Old-Implementation
 
 Cabe destacar, que a partir de Windows 11, si un proceso de propiedad de una ventana se vuelve completamente ocluido/minimizado/invisible para el usuario final, Windows no garantizará una resolución más alta que la resolución predeterminada del sistema: 64 Hz / 15.625 ms. Windows 11 solo garantiza un temporizador de alta resolución para las aplicaciones si tiene prioridad en primer plano o se está utilizando activamente.
