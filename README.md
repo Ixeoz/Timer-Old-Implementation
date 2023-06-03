@@ -1,4 +1,4 @@
-Este repositorio ha sido escrito y publicado por Ixeoz y Velytics, hemos recopilado información de otras fuentes, los créditos estarán hasta el final.
+Este repositorio ha sido escrito y publicado por Ixeoz y Velytics, hemos recopilado información de otras fuentes, los créditos correspondientes a cada usuario se encuentran al final de este repositorio. 
 
 # Timer-Old-Implementation
 
