@@ -34,6 +34,8 @@ El comportamiento del programador de Windows cambió significativamente en Windo
 
 ## [Lectura sobre Win32PrioritySeparation](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Win32PS/win32ps.md).
 
+## [Lectura sobre Message Signaled Interrupts](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Message%20Signaled%20Interrupts/msi.md).
+
 # Referencias:
 
 - [amitxv/PC-Tuning](https://github.com/amitxv/PC-Tuning/blob/main/docs/research.md#fixing-timing-precision-in-windows-after-the-great-rule-change).
