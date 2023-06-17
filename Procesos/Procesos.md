@@ -4,7 +4,7 @@ La cantidad de procesos que vemos en el ``taskmgr`` / Administrador de tareas, r
 
 [Generación de Procesos](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Procesos/Generaci%C3%B3n/Generaci%C3%B3n%20procesos.py).
 
-# **Prueba de rendimiento:**
+# **Pruebas de rendimiento:**
 
 ![](https://i.imgur.com/NNUy9F2.png)
 
