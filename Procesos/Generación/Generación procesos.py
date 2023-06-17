@@ -9,7 +9,7 @@ def create_window():
 
 if __name__ == '__main__':
     processes = []
-    for _ in range(50): // Cantidad de procesos creados.
+    for _ in range(50): # Cantidad de procesos creados.
         p = multiprocessing.Process(target=create_window)
         p.start()
         processes.append(p)

@@ -2,6 +2,8 @@
 
 La cantidad de procesos que vemos en el Task Manager / Administrador de tareas, realmente NO influye en el rendimiento dependiendo al conteo. Con esto quiero decir que hay cosas que influyen como: los **Cycles Delta** y los **Context Switch**.
 
+[Generación de Procesos](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Procesos/Generaci%C3%B3n/Generaci%C3%B3n%20procesos.py).
+
 ## **Primero debemos tener conceptos fundamentales para comprender los Procesos.**
 
 **¿Qué es un proceso?**
@@ -492,7 +494,7 @@ int main(int argc, char *argv[])
 
 [**Explicación interesante sobre el algoritmo**](https://www.youtube.com/watch?v=70auqrv84y8).
 
- - Solución a está problemática resuelta por mí:
+ - [Solución a está problemática resuelta por mí](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Procesos/Fil%C3%B3sofos%20comensales/filosofos.cpp).
 
 # **Gestión de la memoria:** 
 
@@ -750,11 +752,8 @@ Supongamos los siguientes tiempos de acceso a la memoria
 
 - Un búfer de traducción (TLB) es una caché que el hardware de gestión de memoria utiliza para mejorar la velocidad de traducción de direcciones virtuales.
 
-
-
-
-
 # **Prueba de rendimiento:**
 
 ![](https://i.imgur.com/p5F2VpW.png)
+
 ![](https://i.imgur.com/W72NX7q.png)
