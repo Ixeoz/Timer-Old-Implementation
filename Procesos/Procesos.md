@@ -4,6 +4,12 @@ La cantidad de procesos que vemos en el Task Manager / Administrador de tareas, 
 
 [Generación de Procesos](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Procesos/Generaci%C3%B3n/Generaci%C3%B3n%20procesos.py).
 
+# **Prueba de rendimiento:**
+
+![](https://i.imgur.com/NNUy9F2.png)
+
+![](https://i.imgur.com/PyJIgRn.png)
+
 ## **Primero debemos tener conceptos fundamentales para comprender los Procesos.**
 
 **¿Qué es un proceso?**
@@ -751,9 +757,3 @@ Supongamos los siguientes tiempos de acceso a la memoria
 ## **Hardware de paginación con TLB:**
 
 - Un búfer de traducción (TLB) es una caché que el hardware de gestión de memoria utiliza para mejorar la velocidad de traducción de direcciones virtuales.
-
-# **Prueba de rendimiento:**
-
-![](https://i.imgur.com/p5F2VpW.png)
-
-![](https://i.imgur.com/W72NX7q.png)
