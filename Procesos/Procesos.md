@@ -38,7 +38,7 @@ La cantidad de procesos que vemos en el ``taskmgr`` / Administrador de tareas, r
 
 ![](https://i.imgur.com/vsWlrc7.png)
 
-- **Diseño de memoria en C:**
+- **Diseño de memoria en C/C++:**
 
 ![](https://i.imgur.com/sDH9QOT.png)
 
