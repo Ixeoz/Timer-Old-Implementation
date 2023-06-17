@@ -1,6 +1,6 @@
 # **La cantidad o conteo de procesos NO importa.**
 
-La cantidad de procesos que vemos en el ``taskmgr`` / Administrador de tareas, realmente NO influye en el rendimiento dependiendo al conteo. Con esto quiero decir que hay cosas que influyen como: los **Cycles Delta** y los **Context Switch**.
+La cantidad de procesos que vemos en el ``taskmgr`` / Administrador de tareas, realmente NO influye en el rendimiento dependiendo al conteo. Esto quiere decir, que hay cosas que realmente influyen como: los **Cycles Delta** y los **Context Switch**.
 
 [Generación de Procesos](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Procesos/Generaci%C3%B3n/Generaci%C3%B3n%20procesos.py).
 
