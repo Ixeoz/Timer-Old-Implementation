@@ -757,3 +757,15 @@ Supongamos los siguientes tiempos de acceso a la memoria
 ## **Hardware de paginación con TLB:**
 
 - Un búfer de traducción (TLB) es una caché que el hardware de gestión de memoria utiliza para mejorar la velocidad de traducción de direcciones virtuales.
+
+# **Referencias:**
+
+- [Threads](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html).
+
+- [Process Count Doesn’t Matter!](https://zusier.xyz/blog/posts/process-count-doesnt-matter/).
+
+- [Operating Systems: Internals and Design Principles](https://engineering.futureuniversity.com/BOOKS%20FOR%20IT/William%20Stallings%20-%20Operating%20Systems%20(1).pdf).
+
+- [Modern Operating Systems](https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf).
+
+- [Operating System Concepts](https://os.ecci.ucr.ac.cr/slides/Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf).

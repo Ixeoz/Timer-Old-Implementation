@@ -36,6 +36,8 @@ El comportamiento del programador de Windows cambió significativamente en Windo
 
 ## [Lectura sobre Message Signaled Interrupts](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Message%20Signaled%20Interrupts/msi.md).
 
+## [Lectura sobre Procesos](https://github.com/Ixeoz/Timer-Old-Implementation/blob/main/Procesos/Procesos.md).
+
 # Referencias:
 
 - [amitxv/PC-Tuning](https://github.com/amitxv/PC-Tuning/blob/main/docs/research.md#fixing-timing-precision-in-windows-after-the-great-rule-change).
