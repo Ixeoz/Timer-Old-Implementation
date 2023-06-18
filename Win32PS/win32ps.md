@@ -1,6 +1,6 @@
 # Win32PrioritySeparation
 
-Win32PrioritySeparation es una entrada en el registro de Windows que especifica la estrategia utilizada para optimizar el tiempo del procesador en el sistema. El valor de esta entrada determina, en parte, cuánto tiempo reciben los hilos de un proceso cada vez que se programan y cuánto puede variar el tiempo asignado. También afecta la prioridad relativa de los hilos de los procesos en primer y segundo plano.
+Win32PrioritySeparation es una entrada en el registro de Windows que especifica la estrategia utilizada para optimizar el tiempo del procesador en el sistema. El valor de esta entrada determina, en parte, cuánto tiempo reciben los hilos de un proceso cada vez que se programan y cuánto puede variar el tiempo asignado. También afecta la prioridad relativa de los hilos de los procesos en primer plano (o foreground, que es lo que estas haciendo en ese momento) y segundo plano (o background/CSRSS.exe, que es obligatoria para la entrada de dispositivos K&M).
 
 Pero claro, esto tiene mucha más profundidad, entra el planificador de procesos que es un componente del Sistema Operativo para asignar los recursos del sistema. Entra el uso de uno de los algoritmos más usados como [Round Robin](https://es.wikipedia.org/wiki/Planificaci%C3%B3n_Round-robin), que esté asigna un tiempo de procesador fijo a cada proceso y subproceso antes de pasar a otro.
 
