@@ -20,7 +20,7 @@ La cantidad de procesos que vemos en el ``taskmgr`` / Administrador de tareas, r
 
 - **Los programas son pasivos:** son archivos ejecutables que se almacenan en la memoria.
 
-- **Los programas son activos:** los programas se convierten en procesos cuando el archivo ejecutable es cargado en memoria.
+- **Los procesos son activos:** los programas se convierten en procesos cuando el archivo ejecutable es cargado en memoria.
 
     Múltiples procesos pueden ejecutar diferentes instancias de un programa.
 
