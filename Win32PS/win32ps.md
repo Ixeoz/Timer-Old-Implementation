@@ -13,11 +13,11 @@ DWORD: Win32PrioritySeparation
 
  Este valor del registro define si los hilos en el proceso de primer plano deben tener sus quantums aumentados y, si es así, la cantidad del aumento. Este valor consta de **6 bits** divididos en tres campos de **2 bits (AABBCC)**. Cada conjunto de dos bits determina una característica diferente de la estrategia de optimización.
 
-- Los dos bits más altos **(AABBCC)** determinan si cada intervalo del procesador es relativamente largo o corto.
+- Los dos bits más altos (**AA**BBCC) determinan si cada intervalo del procesador es relativamente largo o corto.
 
-- Los dos bits del medio **(AABBCC)** determinan si la longitud del intervalo varía o es fija.
+- Los dos bits del medio (AA**BB**CC) determinan si la longitud del intervalo varía o es fija.
 
-- Los dos bits más bajos **(AABBCC)** determinan si los hilos de los procesos en primer plano obtienen más tiempo del procesador que los hilos de los procesos en segundo plano cada vez que se ejecutan.
+- Los dos bits más bajos (AABB**CC**) determinan si los hilos de los procesos en primer plano obtienen más tiempo del procesador que los hilos de los procesos en segundo plano cada vez que se ejecutan.
 
 [Microsoft Documentation](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj54Mu58vz-AhUqQzABHfowCmAQFnoECAoQAQ&url=https%3A%2F%2Fwww.techpowerup.com%2Fforums%2Fattachments%2Fwin32priorityseparation-_-microsoft-docs-pdf.163992%2F&usg=AOvVaw226tFMxny4dfXDvQ7tdOTi).
 
